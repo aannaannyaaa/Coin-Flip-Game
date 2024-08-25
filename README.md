@@ -1,52 +1,9 @@
-<div align="center">
-<h1><strong> CoinFlip - Double up your ETH! </strong></h1>
+## Description 
 
-[![](https://img.shields.io/badge/Moralis%20Academy-Ethereum%20201-blue)](https://academy.moralis.io)
-[![Stargazers](https://img.shields.io/github/stars/Pedrojok01/CoinFlip_2.0)](https://github.com/Pedrojok01/CoinFlip_2.0/stargazers)
-[![Issues](https://img.shields.io/github/issues/Pedrojok01/CoinFlip_2.0)](https://github.com/Pedrojok01/CoinFlip_2.0/issues)
-[![MIT License](https://img.shields.io/github/license/Pedrojok01/CoinFlip_2.0)](https://github.com/Pedrojok01/CoinFlip_2.0/blob/main/License)
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue)](https://www.linkedin.com/in/pierre-e/)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7f7b73fb-c34d-4063-826b-dceae8a580a2/deploy-status)](https://app.netlify.com/sites/coinflip-double-up-your-eth/deploys)
+The CoinFlip Game is a decentralized application where users connect their Ethereum wallets to participate in a high-stakes game of chance. Players bet on either "Heads" or "Tails." If the player's guess matches the outcome of the coin flip, their wager is doubled and returned. If not, the wager is lost. The game leverages an Ethereum smart contract to ensure transparency and fairness.
 
-</div>
 
-![Preview](./public/images/preview.gif)
-
-## Table of Contents
-
-- [Table of Contents](#table-of-contents)
-- [Updates](#updates)
-- [Description](#description)
-- [Built With](#built-with)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Smart-Contracts Deployment](#smart-contracts-deployment)
-    - [Install the dependencies](#install-the-dependencies)
-    - [Deployement](#deployement)
-    - [Coverage](#coverage)
-    - [Static Analyzer](#static-analyzer)
-  - [Config \& Client](#config--client)
-- [Acknowledgments](#acknowledgments)
-- [Use](#use)
-  - [⭐️ ... and don't forget to leave a star if you like it! ⭐️](#️--and-dont-forget-to-leave-a-star-if-you-like-it-️)
-
-## Updates
-
-- 2024/06 - Move from Truffle to Hardhat & Switch to Spolia network & Update to Chainlink VRF 2.5 & compiler to 0.8.20 & Clean contracts/app;
-- 2022/07 - Switch to Chainlink VRF v2 & Update solidity compiler version to 0.8.7;
-- 2022/12 - Switch to Goerli network v2 & upgrade all deps & Update solc to 0.8.16;
-
-## Description
-
-Decentralized application (Dapp), EVM compatible, built as a part of the programming course: Ethereum201 on [academy.moralis.com](https://academy.moralis.io).
-
-The app is a simple coin flip game where you can double up your ETH or lose your bet. The game is based on a smart contract that uses Chainlink VRF to generate a random number.
-
-Smart contracts deployed on Sepolia testnet: [0x097d039Bb7353B0bcD3d585B5a71e8B575F2f3f7](https://sepolia.etherscan.io/address/0x097d039Bb7353B0bcD3d585B5a71e8B575F2f3f7#code)
-
-Try it yourself: [coinflip-double-up-your-eth.netlify.app/](https://coinflip-double-up-your-eth.netlify.app/)
-
-## Built With
+## Tech Stack
 
 - [![React][react.js]][react-url]
 - [![solidity]][solidity-url]
@@ -56,115 +13,13 @@ Try it yourself: [coinflip-double-up-your-eth.netlify.app/](https://coinflip-dou
 
 ## Getting Started
 
-### Prerequisites
+1. Connect your Meta Mask and select Sepholia netork
+2. Select the account with which you want to play
+3. Place your place and enjoy the game !
 
-Make sure you have the following ready:
 
-- [node.js](https://nodejs.org/) installed (developed on LTS v20.12.0)
-- [yarn](https://yarnpkg.com/) installed
-- [hardhat](https://hardhat.org/) installed
-- [MetaMask](https://metamask.io/) installed in your browser
 
-Then create a new repo, open your favorite code editor, and clone the repo with the following cmd:
 
-```bash
-git clone https://github.com/Pedrojok01/CoinFlip_2.0 .
-```
-
-### Smart-Contracts Deployment
-
-#### Install the dependencies
-
-In your terminal, make sure you are in the `COINFLIP_2.0` repo, then move to the blockchain folder :
-
-```bash
-cd blockchain
-```
-
-Then run the following command to install the dependencies:
-
-```bash
-yarn install
-```
-
-#### Deployement
-
-To deploy your smart-contracts:
-
-- Subscribe to Chainlink VRF v2.5 on the [Chainlink VRF Sepolia dashboard](https://vrf.chain.link/sepolia/). You can get some test LINK there: [LINK Faucet](https://faucets.chain.link/).
-- Add your <b>subscription id</b> to the deployment script in `blockchain/scripts/deploy.js`. To deploy on different chains, you will also have to adjust the `COORDINATOR` and `KEY_HASH` values. You can refer to the [Chainlink docs](https://docs.chain.link/vrf/v2-5/supported-networks#configurations) to get the data for the desired network (if supported).
-- Also, make sure that the network is configured in `hardhat.config.js` and that you have defined the required variables in the `.env` file.
-- Edit the script in `blockchain/package.json` to deploy the contract on the network of your choice.
-- Finally, run the command below to deploy to the network of your choice.
-
-```bash
-yarn deploy
-```
-
-#### Coverage
-
-To check the coverage of the tests, run the following command:
-
-```bash
-yarn cover
-```
-
-And see the results printed in the terminal:
-
-![Preview](./public/images/coverage.png)
-
-#### Static Analyzer
-
-For basic security checks, you can run both [Slither](https://github.com/crytic/slither) and [Aderyn](https://github.com/Cyfrin/aderyn) (refer to their doc to install them) with the following commands:
-
-```bash
-yarn slither
-```
-
-```bash
-yarn aderyn
-```
-
-Aderyn will print a nice report file called `report.md` at the root of the project.
-
-### Config & Client
-
-Before each deployment, make sure to:
-
-- Replace the contract address in `src/data/constants.js`
-- Replace the abi file in `src/data/coinFlipAbi.js`
-- Make sure to fund the contract with some ETH ( [Faucet for the Sepolia network](https://goerlifaucet.org/) )
-
----
-
-- Change the `COINFLIP_ADDRESS` in `/src/constants.js` to your deployed contracts address;
-- Copy the new abi file into the `src/abis` folder if you've made any changes to the contracts;
-- Enable/disable, and update the suitable networks in `truffle-config.js`;
-- In the `blockchain/` repo, create a file called `.secret` and paste your mnemonic seed phrase inside; (<b>Make sure you add this file in your `.gitignore`!!!</b>)
-
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-- [Img Shields](https://shields.io)
-- [Font Awesome](https://fontawesome.com)
-- [Jazzicon](https://github.com/MetaMask/jazzicon)
-
-## Use
-
-You are now set to start your local server. Make sure you're still in `COINFLIP 2.0` and type:
-`yarn start`
-
-<br/>
-
-<div align="center">
-<h2># Enjoy!!!</h2>
-
-### ⭐️ ... and don't forget to leave a star if you like it! ⭐️
-
-</div>
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
